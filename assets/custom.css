@@ -1,0 +1,173 @@
+/* custom.css */
+
+/* -----------------------------------------------------------------------------
+ *  ส่วนที่ 1: รีเซ็ตและกำหนดค่าพื้นฐาน
+ * -----------------------------------------------------------------------------
+ */
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa; /* สีพื้นหลังรวมของหน้า */
+}
+
+/* -----------------------------------------------------------------------------
+   *  ส่วนที่ 2: การปรับ Sidebar
+   * -----------------------------------------------------------------------------
+   *  - ปรับความกว้าง
+   *  - ตรึงตำแหน่ง (fixed) ทางซ้าย
+   *  - ตั้งความสูงเต็มหน้าต่าง (100vh)
+   */
+nav.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  overflow-y: auto; /* เปิด scrolling กรณีเมนูเยอะ */
+  padding: 1rem;
+}
+
+/* ลักษณะภายใน Sidebar (แบ็กกราวด์สีเข้ม, ตัวอักษรสีขาว) */
+nav.navbar.bg-dark {
+  background-color: #343a40 !important;
+}
+
+/* ปรับสไตล์รายการเมนู */
+.nav-pills .nav-link {
+  margin-bottom: 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #0d6efd; /* สีน้ำเงิน Bootstrap */
+  color: #fff !important;
+}
+
+.nav-pills .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ถ้าต้องการซ่อน scrollbar หรือปรับสไตล์ scrollbar */
+nav.navbar::-webkit-scrollbar {
+  width: 6px;
+}
+nav.navbar::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 3px;
+}
+nav.navbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* -----------------------------------------------------------------------------
+   *  ส่วนที่ 3: Layout ของเนื้อหา (Content Area)
+   * -----------------------------------------------------------------------------
+   */
+.container-fluid {
+  margin-left: 260px; /* เว้นที่ข้างซ้ายให้พอดีกับ Sidebar */
+  padding: 20px;
+}
+
+/* -----------------------------------------------------------------------------
+   *  ส่วนที่ 4: การ์ด (Card) และองค์ประกอบใน Dashboard
+   * -----------------------------------------------------------------------------
+   */
+.card {
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card h5 {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+   *  ส่วนที่ 5: ตาราง (Table)
+   * -----------------------------------------------------------------------------
+   * - ปรับหัวตารางให้เป็นสีพื้นหลังอ่อน
+   * - เพิ่มความชัดเจนของเส้นขอบ
+   */
+.table thead th {
+  background-color: #f2f2f2;
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+}
+
+/* เพิ่ม hover effect ให้แถว */
+.table-hover tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* -----------------------------------------------------------------------------
+   *  ส่วนที่ 6: ปุ่ม (Button)
+   * -----------------------------------------------------------------------------
+   * - Override สีหลัก (primary) ตามต้องการ
+   * - เพิ่ม transition ให้ดูสวยงามเมื่อ hover
+   */
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.btn-primary:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+/* ปุ่มอันตราย (เช่น ลบ) */
+.btn-danger {
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.btn-danger:hover {
+  background-color: #bb2d3b;
+  border-color: #b02a37;
+}
+
+/* -----------------------------------------------------------------------------
+   *  ส่วนที่ 7: หน้า Login / Form
+   * -----------------------------------------------------------------------------
+   */
+body.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+/* การจัดตำแหน่ง Card ในหน้า Login ให้กึ่งกลางจอ (ถ้าใช้ container + flex) */
+.login-card {
+  width: 400px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* -----------------------------------------------------------------------------
+   *  ส่วนที่ 8: Footer (ถ้ามี)
+   * -----------------------------------------------------------------------------
+   */
+.site-footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* -----------------------------------------------------------------------------
+   *  ส่วนที่ 9: Media Queries (ปรับแก้เมื่อหน้าจอเล็กลง)
+   * -----------------------------------------------------------------------------
+   */
+@media (max-width: 768px) {
+  nav.navbar {
+    position: static;
+    width: 100%;
+    height: auto;
+  }
+  .container-fluid {
+    margin-left: 0;
+  }
+}
